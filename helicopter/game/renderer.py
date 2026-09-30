@@ -11,6 +11,7 @@ COLOR_BG = (140, 200, 230)
 COLOR_HELI = (60, 60, 70)
 COLOR_OBSTACLE = (70, 150, 80)
 COLOR_TEXT = (20, 20, 20)
+COLOR_SHIELD = (40, 120, 255)
 
 
 def draw_scene(surface, helicopter, obstacles):
@@ -29,3 +30,14 @@ def draw_banner(surface, font, text):
     surf = font.render(text, True, (180, 40, 40))
     rect = surf.get_rect(center=(surface.get_width() // 2, surface.get_height() // 2))
     surface.blit(surf, rect)
+
+
+def draw_shield(surface, helicopter):
+    shield_rect = helicopter.get_rect().inflate(14, 14)
+    pygame.draw.rect(
+        surface,
+        COLOR_SHIELD,
+        shield_rect,
+        width=3,
+        border_radius=8,
+    )
